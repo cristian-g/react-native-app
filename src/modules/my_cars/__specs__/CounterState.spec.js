@@ -2,19 +2,19 @@
 
 import {Effects} from 'redux-loop-symbol-ponyfill';
 import {initialState, dispatch} from '../../../../test/state';
-import * as CounterStateActions from '../CounterState';
+import * as MyCarsStateActions from '../MyCarsState';
 
-describe('CounterState', () => {
+describe('MyCarsState', () => {
 
   // Example of how to test multiple dispatches in series
   describe('increment', () => {
-    const getValue = state => state.getIn(['counter', 'value']);
+    const getValue = state => state.getIn(['myCars', 'value']);
 
     it('should increment the value property by one', () => {
-      const [secondState] = dispatch(initialState, CounterStateActions.increment());
+      const [secondState] = dispatch(initialState, MyCarsStateActions.increment());
       expect(getValue(secondState)).toBe(getValue(initialState) + 1);
 
-      const [thirdState] = dispatch(secondState, CounterStateActions.increment());
+      const [thirdState] = dispatch(secondState, MyCarsStateActions.increment());
       expect(getValue(thirdState)).toBe(getValue(secondState) + 1);
     });
   });
@@ -22,27 +22,27 @@ describe('CounterState', () => {
   describe('reset', () => {
     it('should reset the my_cars state to initial value', () => {
       // create an incremented state to test against
-      const [modifiedState] = dispatch(initialState, CounterStateActions.increment());
-      expect(modifiedState.get('counter')).not.toBe(initialState.get('counter'));
+      const [modifiedState] = dispatch(initialState, MyCarsStateActions.increment());
+      expect(modifiedState.get('myCars')).not.toBe(initialState.get('myCars'));
 
       // reset to original and verify it === initial state
-      const [resetState] = dispatch(modifiedState, CounterStateActions.reset());
-      expect(resetState.get('counter')).toBe(initialState.get('counter'));
+      const [resetState] = dispatch(modifiedState, MyCarsStateActions.reset());
+      expect(resetState.get('myCars')).toBe(initialState.get('myCars'));
     });
   });
 
   // Example of how to test side effects returned from reducers
   describe('random', () => {
 
-    const [nextState, effects] = dispatch(initialState, CounterStateActions.random());
+    const [nextState, effects] = dispatch(initialState, MyCarsStateActions.random());
 
     it('should update loading bit', () => {
-      expect(nextState.getIn(['counter', 'loading'])).toBe(true);
+      expect(nextState.getIn(['myCars', 'loading'])).toBe(true);
     });
 
     it('should trigger a requestRandomNumber side effect', () => {
       expect(effects).toEqual(
-        Effects.promise(CounterStateActions.requestRandomNumber)
+        Effects.promise(MyCarsStateActions.requestRandomNumber)
       );
     });
   });
@@ -59,12 +59,12 @@ describe('CounterState', () => {
     });
 
     it('should generate a random number and dispatch it', async () => {
-      const action = await CounterStateActions.requestRandomNumber();
+      const action = await MyCarsStateActions.requestRandomNumber();
       expect(typeof action.payload).toBe('number');
 
       const [nextState] = dispatch(initialState, action);
-      expect(nextState.getIn(['counter', 'value'])).toBe(action.payload);
-      expect(nextState.getIn(['counter', 'loading'])).toBe(false);
+      expect(nextState.getIn(['myCars', 'value'])).toBe(action.payload);
+      expect(nextState.getIn(['myCars', 'loading'])).toBe(false);
     });
   });
 });

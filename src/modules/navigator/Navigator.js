@@ -10,8 +10,8 @@ const activeColor = 'white';
 
 // TabNavigator is nested inside StackNavigator
 export const MainScreenNavigator = TabNavigator({
-  Counter: {screen: MyCarsViewContainer},
-  Color: {screen: SharedWithMeViewContainer}
+  MyCars: {screen: MyCarsViewContainer},
+  SharedWithMe: {screen: SharedWithMeViewContainer}
 }, {
   tabBarOptions: {
     ...Platform.select({

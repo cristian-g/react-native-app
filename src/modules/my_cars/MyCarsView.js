@@ -11,8 +11,8 @@ import {
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {Card, Button} from 'react-native-elements';
 
-class CounterView extends Component {
-  static displayName = 'CounterView';
+class MyCarsView extends Component {
+  static displayName = 'MyCarsView';
 
   static navigationOptions = {
     title: 'My cars',
@@ -22,11 +22,11 @@ class CounterView extends Component {
   }
 
   static propTypes = {
-    counter: PropTypes.number.isRequired,
+    myCars: PropTypes.number.isRequired,
     userName: PropTypes.string,
     userProfilePhoto: PropTypes.string,
     loading: PropTypes.bool.isRequired,
-    counterStateActions: PropTypes.shape({
+    myCarsStateActions: PropTypes.shape({
       increment: PropTypes.func.isRequired,
       reset: PropTypes.func.isRequired,
       random: PropTypes.func.isRequired
@@ -35,11 +35,11 @@ class CounterView extends Component {
   };
 
   increment = () => {
-    this.props.counterStateActions.increment();
+    this.props.myCarsStateActions.increment();
   };
 
   random = () => {
-    this.props.counterStateActions.random();
+    this.props.myCarsStateActions.random();
   };
 
   renderUserInfo = () => {
@@ -127,14 +127,14 @@ const styles = StyleSheet.create({
     ...circle,
     alignSelf: 'center'
   },
-  counterButton: {
+  myCarsButton: {
     ...circle,
     backgroundColor: '#349d4a',
     alignItems: 'center',
     justifyContent: 'center',
     margin: 20
   },
-  counter: {
+  myCars: {
     color: 'white',
     fontSize: 20,
     textAlign: 'center'
@@ -153,4 +153,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default CounterView;
+export default MyCarsView;

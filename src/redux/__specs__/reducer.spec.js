@@ -8,13 +8,13 @@ describe('reducer', () => {
     it('resets state with RESET_STATE action', () => {
       // Use auth.isLoggedIn as an example. isReady is changed in the
       // SessionState reducer, so the entire store state is not reset.
-      const newState = initialState.setIn(['counter', 'value'], 9);
+      const newState = initialState.setIn(['myCars', 'value'], 9);
       const resetStateAction = SessionState.resetSessionStateFromSnapshot(newState);
 
       const [nextState] = dispatch(initialState, resetStateAction);
 
-      expect(initialState.getIn(['counter', 'value'])).toBe(0);
-      expect(nextState.getIn(['counter', 'value'])).toBe(9);
+      expect(initialState.getIn(['myCars', 'value'])).toBe(0);
+      expect(nextState.getIn(['myCars', 'value'])).toBe(9);
     });
   });
 });

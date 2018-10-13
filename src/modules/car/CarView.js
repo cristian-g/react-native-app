@@ -13,8 +13,8 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
  * Sample view to demonstrate StackNavigator
  * @TODO remove this module in a live application.
  */
-class ColorView extends Component {
-  static displayName = 'ColorView';
+class CarView extends Component {
+  static displayName = 'CarView';
 
   static navigationOptions = {
     title: 'Car details',
@@ -68,4 +68,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ColorView;
+export default CarView;

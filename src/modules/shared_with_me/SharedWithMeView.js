@@ -12,8 +12,8 @@ import {Card, Button} from 'react-native-elements';
  * Sample view to demonstrate StackNavigator
  * @TODO remove this module in a live application.
  */
-class ColorView extends Component {
-  static displayName = 'ColorView';
+class SharedWithMeView extends Component {
+  static displayName = 'SharedWithMeView';
 
   static navigationOptions = {
     title: 'Shared with me',
@@ -117,4 +117,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ColorView;
+export default SharedWithMeView;
