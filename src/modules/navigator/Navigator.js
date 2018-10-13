@@ -1,16 +1,17 @@
 import {Platform} from 'react-native';
 import {TabNavigator, StackNavigator} from 'react-navigation';
 
-import CounterViewContainer from '../counter/CounterViewContainer';
-import ColorViewContainer from '../colors/ColorViewContainer';
+import MyCarsViewContainer from '../my_cars/MyCarsViewContainer';
+import SharedWithMeViewContainer from '../shared_with_me/SharedWithMeViewContainer';
+import CarViewContainer from '../car/CarViewContainer';
 
-const headerColor = '#39babd';
+const headerColor = '#03A9F4';
 const activeColor = 'white';
 
 // TabNavigator is nested inside StackNavigator
 export const MainScreenNavigator = TabNavigator({
-  Counter: {screen: CounterViewContainer},
-  Color: {screen: ColorViewContainer}
+  Counter: {screen: MyCarsViewContainer},
+  Color: {screen: SharedWithMeViewContainer}
 }, {
   tabBarOptions: {
     ...Platform.select({
@@ -24,7 +25,7 @@ export const MainScreenNavigator = TabNavigator({
 });
 
 MainScreenNavigator.navigationOptions = {
-  title: 'Pepperoni App Template',
+  title: 'Car sharing app',
   headerTitleStyle: {color: 'white'},
   headerStyle: {
     backgroundColor: headerColor,
@@ -35,7 +36,7 @@ MainScreenNavigator.navigationOptions = {
 // Root navigator is a StackNavigator
 const AppNavigator = StackNavigator({
   Home: {screen: MainScreenNavigator},
-  InfiniteColorStack: {screen: ColorViewContainer}
+  Car: {screen: CarViewContainer}
 });
 
 export default AppNavigator;

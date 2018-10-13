@@ -58,4 +58,4 @@ The files you'll be interested in are:
 * [`src/components/DeveloperMenu.ios.js`](https://github.com/futurice/pepperoni-app-kit/blob/e57bdac1cab657b25fb636cd31e4f630056dc95b/src/components/DeveloperMenu.ios.js#L31)
 * [`src/modules/AppView.js`](https://github.com/futurice/pepperoni-app-kit/blob/e57bdac1cab657b25fb636cd31e4f630056dc95b/src/modules/AppView.js#L33)
 * [`src/modules/AppViewContainer.js`](https://github.com/futurice/pepperoni-app-kit/blob/e57bdac1cab657b25fb636cd31e4f630056dc95b/src/modules/AppViewContainer.js#L6-L7)
-* [`src/modules/counter/CounterViewContainer.js`](https://github.com/futurice/pepperoni-app-kit/blob/e57bdac1cab657b25fb636cd31e4f630056dc95b/src/modules/counter/CounterViewContainer.js#L8-L9)
+* [`src/modules/counter/MyCarsViewContainer.js`](https://github.com/futurice/pepperoni-app-kit/blob/e57bdac1cab657b25fb636cd31e4f630056dc95b/src/modules/counter/MyCarsViewContainer.js#L8-L9)

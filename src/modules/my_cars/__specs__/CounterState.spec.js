@@ -20,7 +20,7 @@ describe('CounterState', () => {
   });
 
   describe('reset', () => {
-    it('should reset the counter state to initial value', () => {
+    it('should reset the my_cars state to initial value', () => {
       // create an incremented state to test against
       const [modifiedState] = dispatch(initialState, CounterStateActions.increment());
       expect(modifiedState.get('counter')).not.toBe(initialState.get('counter'));

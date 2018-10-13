@@ -1,8 +1,8 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import CounterView from './CounterView';
+import MyCarsView from './MyCarsView';
 import {NavigationActions} from 'react-navigation';
-import * as CounterStateActions from '../counter/CounterState';
+import * as MyCarsStateActions from './MyCarsState';
 
 export default connect(
   state => ({
@@ -12,7 +12,7 @@ export default connect(
   dispatch => {
     return {
       navigate: bindActionCreators(NavigationActions.navigate, dispatch),
-      counterStateActions: bindActionCreators(CounterStateActions, dispatch)
+      counterStateActions: bindActionCreators(MyCarsStateActions, dispatch)
     };
   }
-)(CounterView);
+)(MyCarsView);

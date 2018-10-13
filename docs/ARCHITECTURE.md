@@ -56,7 +56,7 @@ The State part of the module is a [Redux Duck](https://github.com/erikras/ducks-
 Let's take a simple example of an application that displays a number, which the user can increment by pressing a *plus* button, and decrement using a *minus* button.
 
 ```js
-// CounterState.js
+// MyCarsState.js
 import {Map} from 'immutable';
 
 // INITIAL STATE

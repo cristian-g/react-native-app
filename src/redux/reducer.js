@@ -1,7 +1,7 @@
 import {Map, fromJS} from 'immutable';
 import {loop, combineReducers} from 'redux-loop-symbol-ponyfill';
 import NavigatorStateReducer from '../modules/navigator/NavigatorState';
-import CounterStateReducer from '../modules/counter/CounterState';
+import CounterStateReducer from '../modules/my_cars/MyCarsState';
 import SessionStateReducer, {RESET_STATE} from '../modules/session/SessionState';
 // ## Generator Reducer Imports
 

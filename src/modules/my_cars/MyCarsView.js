@@ -5,16 +5,17 @@ import {
   TouchableOpacity,
   Image,
   Text,
-  View
+  View,
+  ScrollView
 } from 'react-native';
-
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import {Card, Button} from 'react-native-elements';
 
 class CounterView extends Component {
   static displayName = 'CounterView';
 
   static navigationOptions = {
-    title: 'Counter',
+    title: 'My cars',
     tabBarIcon: (props) => (
         <Icon name='plus-one' size={24} color={props.tintColor} />
       )
@@ -37,16 +38,8 @@ class CounterView extends Component {
     this.props.counterStateActions.increment();
   };
 
-  reset = () => {
-    this.props.counterStateActions.reset();
-  };
-
   random = () => {
     this.props.counterStateActions.random();
-  };
-
-  bored = () => {
-    this.props.navigate({routeName: 'Color'});
   };
 
   renderUserInfo = () => {
@@ -71,51 +64,45 @@ class CounterView extends Component {
     );
   };
 
+  open = () => {
+      this.props.navigate({routeName: 'Car'});
+  };
+
   render() {
     const loadingStyle = this.props.loading
       ? {backgroundColor: '#eee'}
       : null;
 
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
 
         {this.renderUserInfo()}
 
-        <TouchableOpacity
-          accessible={true}
-          accessibilityLabel={'Increment counter'}
-          onPress={this.increment}
-          style={[styles.counterButton, loadingStyle]}>
-          <Text style={styles.counter}>
-            {this.props.counter}
-          </Text>
-        </TouchableOpacity>
+        <Card
+            title='Ford Fiesta 1.25 Trend 82 White'
+            image={require('../../../images/cars/ford_fiesta.jpg')}>
+          <Button
+              icon={{name: 'list'}}
+              backgroundColor='#03A9F4'
+              buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
+              title='VIEW DETAILS'
+              onPress={this.open}
+          />
+        </Card>
 
-        <TouchableOpacity
-            accessible={true}
-            accessibilityLabel={'Reset counter'}
-            onPress={this.reset}>
-          <Text style={styles.linkButton}>
-            Reset
-          </Text>
-        </TouchableOpacity>
+        <Card
+            title='Tesla Model S Red'
+            image={require('../../../images/cars/red_tesla_model_s.jpg')}>
+          <Button
+              icon={{name: 'list'}}
+              backgroundColor='#03A9F4'
+              buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
+              title='VIEW DETAILS'
+              onPress={this.open}
+          />
+        </Card>
 
-        <TouchableOpacity
-            accessible={true}
-            accessibilityLabel={'Randomize counter'}
-            onPress={this.random}>
-          <Text style={styles.linkButton}>
-            Random
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={this.bored} accessible={true}>
-          <Text style={styles.linkButton}>
-            {'I\'m bored!'}
-          </Text>
-        </TouchableOpacity>
-
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -130,8 +117,6 @@ const circle = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: 'white'
   },
   userContainer: {
