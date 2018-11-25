@@ -68,6 +68,10 @@ class MyCarsView extends Component {
       this.props.navigate({routeName: 'Car'});
   };
 
+  openProfile = () => {
+      this.props.navigate('Profile', {credentials: credentials, profile: profile});
+  };
+
   render() {
     const loadingStyle = this.props.loading
       ? {backgroundColor: '#eee'}
@@ -75,6 +79,14 @@ class MyCarsView extends Component {
 
     return (
       <ScrollView style={styles.container}>
+
+        <Button
+            icon={{name: 'list'}}
+            backgroundColor='#03A9F4'
+            buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
+            title='PROFILE'
+            onPress={this.openProfile}
+        />
 
         {this.renderUserInfo()}
 
