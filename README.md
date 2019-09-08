@@ -1,4 +1,6 @@
-This is a very first step of a project I'm working in.
+## React Native mobile app
+
+This is a very first step of a project I'm working on.
 I've created two tabs using TabNavigator and an extra screen that could be used to show item details.
 
 ## Stack
